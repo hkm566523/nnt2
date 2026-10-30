@@ -47,22 +47,10 @@
             align-items: center;
         }
 
-        .logo h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            color: #8B5A2B;
-            cursor: default;
-        }
-        .logo span {
-            font-size: 0.8rem;
-            font-weight: 400;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 2px;
-            color: #B87C4E;
+        .logo img {
             display: block;
-            line-height: 1.2;
+            width: 260px;
+            height: auto;
         }
 
         .nav-links {
@@ -144,9 +132,10 @@
         }
         .hero-content {
             flex: 1;
+            text-align: center;
         }
         .hero-content .badge {
-            font-size: 0.85rem;
+            font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #C17B3C;
@@ -165,21 +154,9 @@
         .hero-content p {
             font-size: 1.1rem;
             color: #5F4A32;
-            margin-bottom: 2rem;
-            max-width: 500px;
+            margin: 0 auto 2rem;
+            max-width: 1080px;
         }
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 32px;
-            /* box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2); */
-            object-fit: cover;
-        }
-
         /* 通用区域标题 */
         .section-title {
             text-align: center;
@@ -427,6 +404,9 @@
             .menu-btn {
                 display: block;
             }
+            .logo img {
+                width: 220px;
+            }
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -464,8 +444,7 @@
 <nav class="navbar">
     <div class="container nav-container">
         <div class="logo">
-            <h1>念宁堂·东方草本轻养专家</h1>
-            <span>古法膏滋 · 东方草本轻养专家</span>
+            <img src="念宁堂图片/东方草本轻养专家.png" alt="念宁堂">
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">首页</a></li>
@@ -485,12 +464,9 @@
             <div class="hero-content">
                 <span class="badge">非遗技艺 · 百年传承</span>
                 <h1>膏滋润养，东方食养智慧</h1>
-                <p>遵循古法，九法十要，每一勺皆是浓缩的自然精华。念宁堂，以匠心熬制温润膏方，守护当代人的健康日常。</p>
+                <p>贵州高原云雾缭绕，孕育丰富草本资源，从折耳根到深山灵草，我们秉持“取之有度、用之有节”的理念，将大自然的馈赠转化为健康基石；承袭古医“治未病”智慧，以念兹在兹的执着守护健康，把对生命的尊重融入产品全流程，如老中医般细致审慎地对待每一份配方与工艺。
+</p>
                 <a href="#products" class="btn-primary">探索膏滋系列 <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
-            </div>
-            <div class="hero-image">
-                <!-- ⭐ 图片替换：主视觉图片 可更换路径（如 ./images/hero.jpg） -->
-                <img src="念宁堂图片/东方草本轻养专家.png" alt="念宁堂古法膏滋展示" style="object-fit:cover;">
             </div>
         </div>
     </section>
@@ -507,7 +483,7 @@
                 <div class="product-info">
                     <h3>茯苓黄姜膏</h3>
                     <p>长白山人参搭配九制黄精，补气养元，适合熬夜乏力人群。</p>
-                    <div class="price">¥368 <span style="font-size:0.8rem; color:#B87C4E;">/ 150g</span></div>
+                    <div class="price">¥79 <span style="font-size:0.8rem; color:#B87C4E;">/ 150g</span></div>
                 </div>
             </div>
             <!-- 产品卡片 2 -->
@@ -516,7 +492,7 @@
                 <div class="product-info">
                     <h3>酸枣仁畅心膏</h3>
                     <p>经典养血配方，当归、川芎、白芍、熟地，温润滋养气色。</p>
-                    <div class="price">¥298 <span style="font-size:0.8rem;">/ 150g</span></div>
+                    <div class="price">¥89 <span style="font-size:0.8rem;">/ 150g</span></div>
                 </div>
             </div>
             <!-- 产品卡片 3 -->
@@ -525,7 +501,16 @@
                 <div class="product-info">
                     <h3>阿胶气雪乌黑膏</h3>
                     <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 150g</span></div>
+                    <div class="price">¥99 <span style="font-size:0.8rem;">/ 150g</span></div>
+                </div>
+            </div>
+                                    <!-- 产品卡片 3 -->
+            <div class="product-card">
+                <img class="product-img" src="念宁堂图片/妙峰上玫瑰膏.jpg" alt="妙峰山玫瑰膏" loading="lazy">
+                <div class="product-info">
+                    <h3>妙峰山玫瑰膏</h3>
+                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <div class="price">¥159 <span style="font-size:0.8rem;">/ 200g</span></div>
                 </div>
             </div>
                          <!-- 产品卡片 3 -->
@@ -534,30 +519,12 @@
                 <div class="product-info">
                     <h3>温玉膏</h3>
                     <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 200g</span></div>
+                    <div class="price">¥109<span style="font-size:0.8rem;">/ 200g</span></div>
                 </div>
             </div>
                         <!-- 产品卡片 3 -->
             <div class="product-card">
-                <img class="product-img" src="念宁堂图片/妙峰上玫瑰膏.jpg" alt="妙峰山玫瑰膏" loading="lazy">
-                <div class="product-info">
-                    <h3>妙峰山玫瑰膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 200g</span></div>
-                </div>
-            </div>
-                        <!-- 产品卡片 3 -->
-            <div class="product-card">
-                <img class="product-img" src="https://picsum.photos/id/96/600/500" alt="秋梨枇杷膏" loading="lazy">
-                <div class="product-info">
-                    <h3>玫瑰悦心膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 150g</span></div>
-                </div>
-            </div>
-                        <!-- 产品卡片 3 -->
-            <div class="product-card">
-                <img class="product-img" src="https://picsum.photos/id/96/600/500" alt="秋梨枇杷膏" loading="lazy">
+                <img class="product-img" src="/念宁堂图片/御方秋梨膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>御方秋梨膏</h3>
                     <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
@@ -566,7 +533,7 @@
             </div>
                         <!-- 产品卡片 3 -->
             <div class="product-card">
-                <img class="product-img" src="https://picsum.photos/id/96/600/500" alt="秋梨枇杷膏" loading="lazy">
+                <img class="product-img" src="念宁堂图片/嗯嗯畅顺膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>嗯嗯畅顺膏</h3>
                     <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
@@ -575,7 +542,7 @@
             </div>
                         <!-- 产品卡片 3 -->
             <div class="product-card">
-                <img class="product-img" src="https://picsum.photos/id/96/600/500" alt="秋梨枇杷膏" loading="lazy">
+                <img class="product-img" src="念宁堂图片/三结膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>三结膏</h3>
                     <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
@@ -584,11 +551,38 @@
             </div>
                         <!-- 产品卡片 3 -->
             <div class="product-card">
-                <img class="product-img" src="念宁堂图片/山楂丸.jpg" alt="秋梨枇杷膏" loading="lazy">
+                <img class="product-img" src="念宁堂图片/山楂鸡内金膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
-                    <h3>山楂丸</h3>
+                    <h3>山楂鸡内金膏</h3>
                     <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 150g</span></div>
+                    <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
+                </div>
+            </div>
+                                    <!-- 产品卡片 3 -->
+            <div class="product-card">
+                <img class="product-img" src="念宁堂图片/罗汉果甘草膏.png" alt="秋梨枇杷膏" loading="lazy">
+                <div class="product-info">
+                    <h3>罗汉果甘草膏</h3>
+                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
+                </div>
+            </div>
+                                    <!-- 产品卡片 3 -->
+            <div class="product-card">
+                <img class="product-img" src="/念宁堂图片/淡竹叶火麻仁膏.png" alt="秋梨枇杷膏" loading="lazy">
+                <div class="product-info">
+                    <h3>淡竹叶火麻仁膏</h3>
+                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
+                </div>
+            </div>
+                                    <!-- 产品卡片 3 -->
+            <div class="product-card">
+                <img class="product-img" src="/念宁堂图片/蒲公英膏.png" alt="秋梨枇杷膏" loading="lazy">
+                <div class="product-info">
+                    <h3>蒲公英膏</h3>
+                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
                 </div>
             </div>
         <div style="text-align: center; margin-top: 3rem;">
@@ -600,14 +594,18 @@
     <section id="story" class="story-section">
         <div class="container story-wrapper">
             <div class="story-text">
-                <h2>始于道光年间 · 四代传承膏方世家</h2>
-                <p>念宁堂源自江南中医世家，清道光年间以“宁心养元膏”闻名乡里。百年来恪守“炮制虽繁必不敢省人工，品味虽贵必不敢减物力”的祖训。</p>
+                <h2>四代传承膏方世家</h2>
+                <p>植根黔地灵韵，承袭自然馈赠，念宁堂自诞生便怀揣对生命本真的敬畏与守护。
+“念兹在兹，以医者之心研健康之道”——这不仅是刻入骨髓的信念，更是流淌在血脉中的坚守。我们溯源草木精萃，承袭古法智慧，将《黄帝内经》“天人合一”的哲思与现代科技相融，每一份配方的打磨，都如古之医者般审慎：观四时流转以顺天时，察草木性味以合肌理，守“取之有度，用之有节”的自然法则，让每一滴凝萃都承载着草木的灵韵与医者的仁心。
+从初萌的初心到坚定的步履，我们始终以这份信念深耕健康领域。不逐浮华，只问初心，让古老的养生智慧在当代焕新，让自然的馈赠化作触手可及的温暖。如今，念宁堂携着对健康生活的深刻理解，以更亲和的姿态走进万千家庭，用一份份凝结匠心的作品，践行着“护佑安康”的承诺。
+这，便是念宁堂——以初心致匠心，以医者之诚，护万家之宁。
+</p>
                 <p>如今，我们融合现代食养理念，依然坚持铜锅熬制、武火文火交替，让每一瓶膏滋都保留本真风味与温润效力。从选材到成膏，历经12道工序，只为呈现一勺温润。</p>
                 <a href="#" class="btn-primary" style="background:#9F5E2C; margin-top: 0.5rem;">了解更多传承故事</a>
             </div>
             <div class="story-img">
                 <!-- ⭐ 图片替换：品牌故事配图 建议替换为熬膏实拍或药材图 -->
-                <img src="https://picsum.photos/id/108/700/500" alt="古法熬膏工艺" loading="lazy">
+                <img src="念宁堂图片/工厂.JPG" alt="古法熬膏工艺" loading="lazy">
             </div>
         </div>
     </section>
@@ -671,7 +669,7 @@
         <p class="section-sub">添加养生顾问，为您一对一解答，定制适合您的膏滋搭配</p>
         <div style="margin: 2rem auto;">
             <a href="#" class="btn-primary" style="background:#8B5A2B; padding: 14px 36px;"><i class="fab fa-weixin"></i> 预约顾问</a>
-            <a href="#" class="btn-outline" style="margin-left: 1rem;"><i class="fas fa-phone-alt"></i> 400 882 6618</a>
+            <a href="#" class="btn-outline" style="margin-left: 1rem;"><i class="fas fa-phone-alt"></i> 0851-86791716</a>
         </div>
     </section>
 </main>
@@ -696,7 +694,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>© 2025 念宁堂 版权所有 | 传统滋补，食养为先  | 图片仅示意，后期可自由替换</p>
+            <p>© 2025 念宁堂 版权所有 | 传统滋补，食养为先  </p>
         </div>
     </div>
 </footer>
@@ -747,9 +745,8 @@
 
 <!-- 
     ========== 图片替换说明（VSCode 中修改非常方便）==========
-    1. Hero主图：<div class="hero-image"> 内的 <img src="..."> 
-    2. 产品图片：每个 .product-card 内的 .product-img，共3张
-    3. 品牌故事配图：.story-img 内的 <img>
+    1. 产品图片：每个 .product-card 内的 .product-img
+    2. 品牌故事配图：.story-img 内的 <img>
     所有图片地址均为临时占位图，您只需将实际图片放入项目文件夹（如 images/），
     然后将对应的 src 改为相对路径即可（例如 src="images/hero.jpg"）。
     推荐在 VSCode 中安装 Live Server 插件，右键 .html 文件 -> Open with Live Server 实时预览。
