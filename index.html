@@ -80,6 +80,54 @@
             cursor: pointer;
         }
 
+        .qr-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(31, 28, 24, 0.6);
+        }
+        .qr-modal.open {
+            display: flex;
+        }
+        .qr-modal-content {
+            position: relative;
+            width: min(100%, 380px);
+            padding: 28px;
+            border-radius: 20px;
+            background: #fff;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        .qr-modal-content h3 {
+            margin-bottom: 8px;
+            color: #3E2C1C;
+        }
+        .qr-modal-content p {
+            margin-bottom: 18px;
+            color: #6f665c;
+        }
+        .qr-modal-content img {
+            width: min(100%, 280px);
+            margin: 0 auto;
+        }
+        .qr-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 50%;
+            background: #f5f1eb;
+            color: #3E2C1C;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         /* 通用按钮 */
         .btn-primary {
             display: inline-block;
@@ -476,13 +524,14 @@
         <h2 class="section-title">匠心膏滋 · 经典系列</h2>
         <p class="section-sub">甄选道地食材，手工慢熬，滴滴醇厚，温润滋养</p>
         <div class="products-grid">
+
             <!-- 产品卡片 1 - 图片替换位置 -->
             <div class="product-card">
                 <img class="product-img" src="念宁堂图片/黄姜膏150.jpg" alt="茯苓黄姜膏" loading="lazy">
                 <!-- ⭐ 替换说明：上方src可替换为实际产品图路径 -->
                 <div class="product-info">
                     <h3>茯苓黄姜膏</h3>
-                    <p>长白山人参搭配九制黄精，补气养元，适合熬夜乏力人群。</p>
+                    <!-- <p>茯苓与黄姜的完美结合，健脾祛湿，温润滋养。</p> -->
                     <div class="price">¥79 <span style="font-size:0.8rem; color:#B87C4E;">/ 150g</span></div>
                 </div>
             </div>
@@ -491,7 +540,7 @@
                 <img class="product-img" src="念宁堂图片/酸枣仁150.jpg" alt="酸枣仁畅心膏" loading="lazy">
                 <div class="product-info">
                     <h3>酸枣仁畅心膏</h3>
-                    <p>经典养血配方，当归、川芎、白芍、熟地，温润滋养气色。</p>
+                    <!-- <p>酸枣仁与甘草的完美结合，安神助眠，滋养身心。</p> -->
                     <div class="price">¥89 <span style="font-size:0.8rem;">/ 150g</span></div>
                 </div>
             </div>
@@ -500,7 +549,7 @@
                 <img class="product-img" src="念宁堂图片/气雪膏150.jpg" alt="阿胶气雪乌黑膏" loading="lazy">
                 <div class="product-info">
                     <h3>阿胶气雪乌黑膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <!-- <p>滋补肝肾，改善面色暗沉。</p> -->
                     <div class="price">¥99 <span style="font-size:0.8rem;">/ 150g</span></div>
                 </div>
             </div>
@@ -509,7 +558,7 @@
                 <img class="product-img" src="念宁堂图片/妙峰上玫瑰膏.jpg" alt="妙峰山玫瑰膏" loading="lazy">
                 <div class="product-info">
                     <h3>妙峰山玫瑰膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <!-- <p>选自妙峰山的优质玫瑰花，香气浓郁，滋养肌肤。</p> -->
                     <div class="price">¥159 <span style="font-size:0.8rem;">/ 200g</span></div>
                 </div>
             </div>
@@ -518,17 +567,17 @@
                 <img class="product-img" src="念宁堂图片/温玉膏.jpg" alt="温玉膏" loading="lazy">
                 <div class="product-info">
                     <h3>温玉膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <!-- <p>温润滋养，改善面色暗沉。</p> -->
                     <div class="price">¥109<span style="font-size:0.8rem;">/ 200g</span></div>
                 </div>
             </div>
                         <!-- 产品卡片 3 -->
             <div class="product-card">
-                <img class="product-img" src="/念宁堂图片/御方秋梨膏.png" alt="秋梨枇杷膏" loading="lazy">
+                <img class="product-img" src="念宁堂图片/折耳根膏滋1.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
-                    <h3>御方秋梨膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 150g</span></div>
+                    <h3>折耳根膏滋</h3>
+                    <!-- <p>选自贵州大山里的折耳根，清热解毒，消肿止痛。</p> -->
+                    <div class="price">¥49 <span style="font-size:0.8rem;">/ 150g</span></div>
                 </div>
             </div>
                         <!-- 产品卡片 3 -->
@@ -536,8 +585,8 @@
                 <img class="product-img" src="念宁堂图片/嗯嗯畅顺膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>嗯嗯畅顺膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 150g</span></div>
+                    <!-- <p>畅通肠道，改善便秘。</p> -->
+                    <div class="price">¥79 <span style="font-size:0.8rem;">/ 150g</span></div>
                 </div>
             </div>
                         <!-- 产品卡片 3 -->
@@ -545,16 +594,24 @@
                 <img class="product-img" src="念宁堂图片/三结膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>三结膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
-                    <div class="price">¥198 <span style="font-size:0.8rem;">/ 150g</span></div>
+                    <!-- <p>三味药材的完美结合，清热解毒，消肿止痛。</p> -->
+                    <div class="price">¥99 <span style="font-size:0.8rem;">/ 150g</span></div>
                 </div>
             </div>
+    </section>
+        <!-- 儿童特色产品区 / 膏滋系列 图片均可后期更换 -->
+    <section id="products" class="container" style="padding: 70px 0 50px;">
+        <h2 class="section-title">甜蜜守护·母婴系列</h2>
+        <p class="section-sub">聚焦母婴赛道，安全、纯净、温和的母婴产品</p>
+        <div class="products-grid">
+
+            <!-- 产品卡片 1 - 图片替换位置 -->
                         <!-- 产品卡片 3 -->
             <div class="product-card">
                 <img class="product-img" src="念宁堂图片/山楂鸡内金膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>山楂鸡内金膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <!-- <p>山楂、鸡内金，消食化积，健脾养胃。</p> -->
                     <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
                 </div>
             </div>
@@ -563,7 +620,7 @@
                 <img class="product-img" src="念宁堂图片/罗汉果甘草膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>罗汉果甘草膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <!-- <p>罗汉果与甘草的完美结合，清热润燥，滋养身心。</p> -->
                     <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
                 </div>
             </div>
@@ -572,7 +629,7 @@
                 <img class="product-img" src="/念宁堂图片/淡竹叶火麻仁膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>淡竹叶火麻仁膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <!-- <p>淡竹叶与火麻仁的完美结合，清热润燥，滋养身心。</p> -->
                     <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
                 </div>
             </div>
@@ -581,14 +638,47 @@
                 <img class="product-img" src="/念宁堂图片/蒲公英膏.png" alt="秋梨枇杷膏" loading="lazy">
                 <div class="product-info">
                     <h3>蒲公英膏</h3>
-                    <p>砀山酥梨配枇杷叶，清润降燥，秋冬润喉之选。</p>
+                    <!-- <p></p> -->
                     <div class="price">¥199 <span style="font-size:0.8rem;">/ 120g</span></div>
                 </div>
             </div>
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="#" class="btn-outline">查看全部膏方 <i class="fas fa-chevron-right"></i></a>
-        </div>
     </section>
+            <!-- 贵医合作产品 / 膏滋系列 图片均可后期更换 -->
+    <section id="products" class="container" style="padding: 70px 0 50px;">
+        <h2 class="section-title">贵州医科大学产学研合作成果转化产品</h2>
+        <p class="section-sub">医科大学背书，夯实产品品质</p>
+        <div class="products-grid">
+
+            <!-- 产品卡片 1 - 图片替换位置 -->
+                        <!-- 产品卡片 3 -->
+            <div class="product-card">
+                <img class="product-img" src="念宁堂图片/山楂荷叶陈皮膏.png" alt="秋梨枇杷膏" loading="lazy">
+                <div class="product-info">
+                    <h3>山楂荷叶陈皮膏</h3>
+                    <!-- <p>山楂、荷叶、陈皮，消食化积，清热利湿。</p> -->
+                    <div class="price">120g <span style="font-size:0.8rem;"></span></div>
+                </div>
+            </div>
+                                    <!-- 产品卡片 3 -->
+            <div class="product-card">
+                <img class="product-img" src="念宁堂图片/茯苓薏仁膏.png" alt="秋梨枇杷膏" loading="lazy">
+                <div class="product-info">
+                    <h3>茯苓薏仁膏</h3>
+                    <!-- <p>茯苓薏仁米，清湿健脾</p> -->
+                    <div class="price">120g <span style="font-size:0.8rem;"></span></div>
+                </div>
+            </div>
+                                    <!-- 产品卡片 3 -->
+            <div class="product-card">
+                <img class="product-img" src="/念宁堂图片/折耳根膏滋.png" alt="秋梨枇杷膏" loading="lazy">
+                <div class="product-info">
+                    <h3>折耳根膏滋</h3>
+                    <!-- <p>选自贵州大山里的折耳根</p> -->
+                    <div class="price">120g <span style="font-size:0.8rem;"></span></div>
+                </div>
+            </div>
+    </section>
+
 
     <!-- 品牌故事区域 / 图片可替换 -->
     <section id="story" class="story-section">
@@ -601,7 +691,6 @@
 这，便是念宁堂——以初心致匠心，以医者之诚，护万家之宁。
 </p>
                 <p>如今，我们融合现代食养理念，依然坚持铜锅熬制、武火文火交替，让每一瓶膏滋都保留本真风味与温润效力。从选材到成膏，历经12道工序，只为呈现一勺温润。</p>
-                <a href="#" class="btn-primary" style="background:#9F5E2C; margin-top: 0.5rem;">了解更多传承故事</a>
             </div>
             <div class="story-img">
                 <!-- ⭐ 图片替换：品牌故事配图 建议替换为熬膏实拍或药材图 -->
@@ -638,48 +727,33 @@
         </div>
     </section>
 
-    <!-- 顾客评价区 -->
-    <div class="testimonials">
-        <div class="container">
-            <h2 class="section-title">口碑 · 真心之言</h2>
-            <p class="section-sub">来自膏友们的真实反馈</p>
-            <div class="testimonial-grid">
-                <div class="testi-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p>“坚持喝人参黄精膏一个月，气色明显红润了，睡眠也安稳很多，不愧是古法熬制，很醇厚不腻。” </p>
-                    <h5>—— 杭州 · 李女士</h5>
-                </div>
-                <div class="testi-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p>“秋梨膏是家里必备，孩子换季咳嗽冲水喝，清甜润肺，比超市那些添加剂的安心太多。”</p>
-                    <h5>—— 苏州 · 陈妈妈</h5>
-                </div>
-                <div class="testi-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p>“四物膏对女生太友好了，每个月那几天不痛了，感觉浑身暖暖的，会一直回购。”</p>
-                    <h5>—— 上海 · 王小姐</h5>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- 联系区域/简单指引 -->
     <section id="contact" class="container" style="padding: 60px 0 40px; text-align: center;">
         <h2 class="section-title">获取专属膏方建议</h2>
         <p class="section-sub">添加养生顾问，为您一对一解答，定制适合您的膏滋搭配</p>
         <div style="margin: 2rem auto;">
-            <a href="#" class="btn-primary" style="background:#8B5A2B; padding: 14px 36px;"><i class="fab fa-weixin"></i> 预约顾问</a>
+            <button type="button" id="appointmentConsultant" class="btn-primary" aria-haspopup="dialog" aria-controls="qrModal" aria-expanded="false" style="background:#8B5A2B; padding: 14px 36px;"><i class="fab fa-weixin"></i> 预约顾问</button>
             <a href="#" class="btn-outline" style="margin-left: 1rem;"><i class="fas fa-phone-alt"></i> 0851-86791716</a>
         </div>
     </section>
+
+    <div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle" aria-hidden="true">
+        <div class="qr-modal-content">
+            <button type="button" class="qr-modal-close" aria-label="关闭二维码弹窗">&times;</button>
+            <h3 id="qrModalTitle">扫码预约顾问</h3>
+            <p>使用微信扫描二维码，添加养生顾问</p>
+            <img src="念宁堂图片/预约顾问二维码.png" alt="念宁堂预约顾问微信二维码">
+        </div>
+    </div>
 </main>
 
 <footer id="footer">
     <div class="container">
         <div class="footer-content">
             <div class="footer-logo">
-                <h3>念宁堂</h3>
-                <p style="margin-top: 8px;">古法膏滋 · 润养东方</p>
+                <h3>念宁堂®</h3>
+                <p style="margin-top: 8px;">东方草本轻养专家</p>
             </div>
             <div class="footer-links">
                 <a href="#home">首页</a>
@@ -694,7 +768,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>© 2025 念宁堂 版权所有 | 传统滋补，食养为先  </p>
+            <p>© 2026 念宁堂® 版权所有 | 传统滋补，食养为先  </p>
         </div>
     </div>
 </footer>
@@ -703,6 +777,31 @@
 <script>
     const menuBtn = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
+    const appointmentButton = document.getElementById('appointmentConsultant');
+    const qrModal = document.getElementById('qrModal');
+    const qrModalClose = qrModal.querySelector('.qr-modal-close');
+
+    function closeQrModal() {
+        qrModal.classList.remove('open');
+        qrModal.setAttribute('aria-hidden', 'true');
+        appointmentButton.setAttribute('aria-expanded', 'false');
+        appointmentButton.focus();
+    }
+
+    appointmentButton.addEventListener('click', () => {
+        qrModal.classList.add('open');
+        qrModal.setAttribute('aria-hidden', 'false');
+        appointmentButton.setAttribute('aria-expanded', 'true');
+        qrModalClose.focus();
+    });
+
+    qrModalClose.addEventListener('click', closeQrModal);
+    qrModal.addEventListener('click', event => {
+        if (event.target === qrModal) closeQrModal();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && qrModal.classList.contains('open')) closeQrModal();
+    });
 
     menuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
