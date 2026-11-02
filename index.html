@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>念宁堂 | 古法膏滋·匠心传承·东方草本轻养专家</title>
+    <title>念宁堂 | 东方草本轻养专家</title>
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -127,6 +127,100 @@
             font-size: 24px;
             cursor: pointer;
         }
+        .product-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(31, 28, 24, 0.6);
+        }
+        .product-modal.open {
+            display: flex;
+        }
+        .product-modal-content {
+            position: relative;
+            width: min(100%, 720px);
+            max-height: min(90vh, 760px);
+            overflow-y: auto;
+            padding: 32px;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        .product-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 50%;
+            background: #f5f1eb;
+            color: #3E2C1C;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .product-modal-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            padding-right: 28px;
+        }
+        .product-modal-image {
+            width: 160px;
+            height: 160px;
+            flex: 0 0 160px;
+            border-radius: 14px;
+            object-fit: cover;
+            background: #FEFAF5;
+        }
+        .product-modal-content h2 {
+            margin-bottom: 8px;
+            color: #3E2C1C;
+        }
+        .product-modal-weight {
+            color: #C17B3C;
+            font-weight: 600;
+        }
+        .product-detail {
+            padding: 16px 0;
+            border-top: 1px solid #F0E2D4;
+        }
+        .product-detail h3 {
+            margin-bottom: 6px;
+            color: #4A3420;
+            font-size: 1rem;
+        }
+        .product-detail p,
+        .product-modal-note {
+            color: #6F543A;
+        }
+        .product-modal-note {
+            margin-top: 12px;
+            font-size: 0.85rem;
+        }
+        .product-img[role="button"]:focus-visible {
+            outline: 3px solid #C17B3C;
+            outline-offset: 3px;
+        }
+        @media (max-width: 520px) {
+            .product-modal-content {
+                padding: 24px;
+            }
+            .product-modal-header {
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .product-modal-image {
+                width: 100px;
+                height: 100px;
+                flex-basis: 100px;
+            }
+        }
 
         /* 通用按钮 */
         .btn-primary {
@@ -246,6 +340,7 @@
             height: 280px;
             object-fit: cover;
             transition: transform 0.5s;
+            cursor: pointer;
         }
         .product-card:hover .product-img {
             transform: scale(1.02);
@@ -746,6 +841,27 @@
             <img src="念宁堂图片/预约顾问二维码.png" alt="念宁堂预约顾问微信二维码">
         </div>
     </div>
+    <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle" aria-hidden="true">
+        <div class="product-modal-content">
+            <button type="button" class="product-modal-close" aria-label="关闭产品详情">&times;</button>
+            <div class="product-modal-header">
+                <img class="product-modal-image" id="productModalImage" src="" alt="">
+                <div>
+                    <h2 id="productModalTitle"></h2>
+                    <p class="product-modal-weight" id="productModalWeight"></p>
+                </div>
+            </div>
+            <div class="product-detail">
+                <h3>配料（核心原料）</h3>
+                <p id="productModalIngredients"></p>
+            </div>
+            <div class="product-detail">
+                <h3>原方功效</h3>
+                <p id="productModalBenefits"></p>
+            </div>
+            <p class="product-modal-note">配料表及产品说明请以实物包装标识为准；食养介绍不替代药品说明或专业诊疗建议。</p>
+        </div>
+    </div>
 </main>
 
 <footer id="footer">
@@ -780,6 +896,76 @@
     const appointmentButton = document.getElementById('appointmentConsultant');
     const qrModal = document.getElementById('qrModal');
     const qrModalClose = qrModal.querySelector('.qr-modal-close');
+    const productModal = document.getElementById('productModal');
+    const productModalClose = productModal.querySelector('.product-modal-close');
+    const productDetails = {
+        '茯苓黄姜膏': { ingredients: '茯苓、黄姜（核心原料）', benefits: '健脾祛湿，清热解毒。益气生津，宣肺止咳，理气解郁。还可以调节免疫，改善消化。适用于舌苔白厚、火气旺；易醒多梦、浑身乏力；汗疱疹湿疹；虚胖水肿小肚腩、大便粘马桶；四肢乏力、身体困重，脾虚肝郁人群。' },
+        '酸枣仁畅心膏': { ingredients: '酸枣仁、甘草（核心原料）', benefits: '养心安神，改善睡眠；清热明目，疏肝理气；健脾消食，生津养胃；还可以改善代谢与消化，调节免疫力，抗疲劳。适用于熬夜压力大，失眠多梦，入睡难易醒，眼干眼疲劳，视物模糊以及感冒后面色差、轻微咽痛等人群。' },
+        '阿胶气雪乌黑膏': { ingredients: '阿胶及其他配料（完整配方以包装为准）', benefits: '补气养血，益气固元，滋阴益肾；改善气血两虚，脾虚湿盛引起的食少、腹胀等；还能补充营养，改善贫血；调节免疫力，抗疲劳。辅助改善睡眠。适用于面色苍白，乏力气短心悸，腰膝酸软，失眠多梦，健忘，食欲差，长期熬夜，换季易感冒人群。' },
+        '妙峰山玫瑰膏': { ingredients: '玫瑰花（核心原料）', benefits: '香气浓郁，滋养肌肤。' },
+        '温玉膏': { ingredients: '完整配料请以产品包装标签为准', benefits: '温补气血、滋养脏腑；益肾滋阴，固护脾胃；还能抗疲劳，辅助调节免疫与造血。适用于面色微黄有斑，手脚偏凉，宫冷宫寒，易疲劳，轻微怕冷，食少，大便偏溏，消化弱，失眠多梦，心急健忘，推迟绝经期的人群。' },
+        '折耳根膏滋': { ingredients: '折耳根（核心原料）', benefits: '清热祛邪、抗菌消炎、补中益气、润肺止咳化痰、祛风散寒，保护肠胃。适用于风寒感冒、鼻塞、流涕、咽喉不适者等人群。' },
+        '嗯嗯畅顺膏': { ingredients: '完整配料请以产品包装标签为准', benefits: '健脾祛湿，理气化痰；滋阴润燥，消食和胃，滋养脾胃；还能改善循环，补充营养，调节代谢的作用。适用于身体困重，腹胀、大便黏溏，面色微黄，长期饮食不规律，胸闷，饮食油腻，食欲差，习惯性便秘、气虚便秘人群以及轻微痛经的女性。' },
+        '三结膏': { ingredients: '三味药材（具体配料以产品包装标签为准）', benefits: '内调消散，泻火散结；益气活血，滋阴滋补；温阳调和，消食护胃；还能辅助抗炎，调节免疫力，改善循环与代谢。适用于有轻度乳腺结节、甲状腺结节、淋巴结节，可助力消散甲状腺 淋巴乳腺结节，排出体内多余物质；缓解因情绪差导致胸肋胀闷，轻微痛经，咽喉不适，痰多面色差，小便偏黄，腹胀的人群。' },
+        '山楂鸡内金膏': { ingredients: '山楂、鸡内金（核心原料）', benefits: '消食化积，健脾养胃。' },
+        '罗汉果甘草膏': { ingredients: '罗汉果、甘草（核心原料）', benefits: '清热润燥，滋养身心。' },
+        '淡竹叶火麻仁膏': { ingredients: '淡竹叶、火麻仁（核心原料）', benefits: '清热润燥，滋养身心。' },
+        '蒲公英膏': { ingredients: '蒲公英（核心原料）', benefits: '原方功效信息待补充，请以产品包装说明为准。' },
+        '山楂荷叶陈皮膏': { ingredients: '山楂、荷叶、陈皮（核心原料）', benefits: '消食化积，清热利湿。' },
+        '茯苓薏仁膏': { ingredients: '茯苓、薏仁（核心原料）', benefits: '清湿健脾。' }
+    };
+    let activeProductTrigger = null;
+
+    function openProductModal(image) {
+        const card = image.closest('.product-card');
+        const name = card.querySelector('.product-info h3').textContent.trim();
+        const weight = card.querySelector('.price').textContent.trim();
+        const details = productDetails[name] || {
+            ingredients: '完整配料请以产品包装标签为准',
+            benefits: '原方功效信息待补充，请以产品包装说明为准。'
+        };
+
+        activeProductTrigger = image;
+        document.getElementById('productModalImage').src = image.src;
+        document.getElementById('productModalImage').alt = name;
+        document.getElementById('productModalTitle').textContent = name;
+        document.getElementById('productModalWeight').textContent = weight;
+        document.getElementById('productModalIngredients').textContent = details.ingredients;
+        document.getElementById('productModalBenefits').textContent = details.benefits;
+        productModal.classList.add('open');
+        productModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        productModalClose.focus();
+    }
+
+    function closeProductModal() {
+        productModal.classList.remove('open');
+        productModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (activeProductTrigger) activeProductTrigger.focus();
+    }
+
+    document.querySelectorAll('.product-card .product-img').forEach(image => {
+        const name = image.closest('.product-card').querySelector('.product-info h3').textContent.trim();
+        image.setAttribute('role', 'button');
+        image.setAttribute('tabindex', '0');
+        image.setAttribute('aria-label', `查看${name}详情`);
+        image.addEventListener('click', () => openProductModal(image));
+        image.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openProductModal(image);
+            }
+        });
+    });
+
+    productModalClose.addEventListener('click', closeProductModal);
+    productModal.addEventListener('click', event => {
+        if (event.target === productModal) closeProductModal();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && productModal.classList.contains('open')) closeProductModal();
+    });
 
     function closeQrModal() {
         qrModal.classList.remove('open');
